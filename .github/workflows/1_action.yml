@@ -1,0 +1,13 @@
+#Name of our workflow
+name : My Test Workflow
+
+#Define the trigger event
+on : [push]
+
+#Jobs run in parallel by default, each runs steps in sequence
+jobs:
+    #Job to print sth out
+    say-hello :
+        runs-on : ubuntu:latest
+        steps : 
+          - run : echo "Hello ,JetWen in GirHub Actions~~"
