@@ -12,21 +12,22 @@ jobs:
         steps : 
           - run : echo "Hello ,JetWen in GirHub Actions~~"
     #job to build and test our C code
-    needs : [say-hello]
-    runs-on : ubuntu-latest
-    steps : 
+    build_and_test :
+        needs : [say-hello]
+        runs-on : ubuntu-latest
+        steps : 
 
-        #Use github.com/actions/checkout to check out this repo
-        - name : Check out this repo
-          uses : actions/checkout@v3
+            #Use github.com/actions/checkout to check out this repo
+            - name : Check out this repo
+              uses : actions/checkout@v3
 
-        #Install necessary packages
-        - name : Install dependencies
-          run : sudo apt install -y build-essential python3
-        
-        #See Where we are in the VM
-        - run : pwd
+            #Install necessary packages
+            - name : Install dependencies
+              run : sudo apt install -y build-essential python3
+            
+            #See Where we are in the VM
+            - run : pwd
 
-        #Run our Test
-        - name : Run Test
-          run : python3 test.py
+            #Run our Test
+            - name : Run Test
+              run : python3 test.py
